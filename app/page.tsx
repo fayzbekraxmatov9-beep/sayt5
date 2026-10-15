@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 import React, { useState } from 'react';
 import {
@@ -34,25 +35,25 @@ export default function BydChazorLanding() {
       id: 'white',
       name: 'Delos Oq (White)',
       bgClass: 'bg-white',
-      img: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80',
+      img: 'https://avatars.mds.yandex.net/i?id=4cd6b1ca4c622dacf1c1646627f12b0d81d7f361-8357156-images-thumbs&n=13',
     },
     {
       id: 'grey',
       name: 'Kvant Kulrang (Time Grey)',
       bgClass: 'bg-slate-500',
-      img: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80',
+      img: 'https://avatars.mds.yandex.net/i?id=26833d2262b010ad75e1d5e510340d67372370bd-5269624-images-thumbs&n=13',
     },
     {
       id: 'black',
       name: 'Qora Bazalt (Obsidian Black)',
       bgClass: 'bg-neutral-900',
-      img: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80',
+      img: 'https://avatars.mds.yandex.net/i?id=760db974eda15d278f5acca57ac10b681a42a13e-5661278-images-thumbs&n=13',
     },
     {
       id: 'blue',
       name: 'Moviy Okean (Ocean Blue)',
       bgClass: 'bg-sky-700',
-      img: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80',
+      img: 'https://avatars.mds.yandex.net/i?id=d0571a9617b4ac1be8d7046988ae3b1ec0ad092b-3729790-images-thumbs&n=13',
     },
   ];
 
@@ -71,7 +72,7 @@ export default function BydChazorLanding() {
   const monthlyInterestRate = annualInterestRate / 12;
   const monthlyPayment = Math.round(
     (loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanMonths))) /
-      (Math.pow(1 + monthlyInterestRate, loanMonths) - 1)
+    (Math.pow(1 + monthlyInterestRate, loanMonths) - 1)
   );
 
   return (
@@ -87,7 +88,14 @@ export default function BydChazorLanding() {
           </div>
 
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-            <a href="#about" className="hover:text-cyan-400 transition">Afzalliklar</a>
+            {/* Oldingi ko'rinishi:
+<a href="#about" className="hover:text-cyan-400 transition">Afzalliklar</a>
+*/}
+
+            {/* Yangi ko'rinishi: */}
+            <Link href="/afzalliklar" className="hover:text-cyan-400 transition">
+              Afzalliklar
+            </Link>
             <a href="#tech" className="hover:text-cyan-400 transition">DM-i Texnologiyasi</a>
             <a href="#calculator" className="hover:text-cyan-400 transition">Kalkulyator</a>
             <a href="#specs" className="hover:text-cyan-400 transition">Xususiyatlar</a>
@@ -95,11 +103,11 @@ export default function BydChazorLanding() {
 
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="tel:+998711234567"
+              href="tel:+998972988788"
               className="flex items-center gap-2 text-sm text-slate-300 hover:text-white"
             >
               <PhoneCall className="w-4 h-4 text-cyan-400" />
-              <span>+998 (71) 123-45-67</span>
+              <span>+998 (97) 298-87-88</span>
             </a>
             <button
               onClick={() => setIsModalOpen(true)}
@@ -140,7 +148,7 @@ export default function BydChazorLanding() {
 
       {/* HERO SECTION */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/20 via-slate-950 to-slate-950 -z-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-cyan-900/20 via-slate-950 to-slate-950 -z-10" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-10">
@@ -149,7 +157,7 @@ export default function BydChazorLanding() {
               Kelajak Gibrid Sedani Oʻzbekistonda
             </div>
             <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-4">
-              BYD <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">CHAZOR</span> DM-i
+              BYD <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-blue-500">CHAZOR</span> DM-i
             </h1>
             <p className="text-slate-400 text-base sm:text-lg">
               Tejamkorlik, elektr dinamikasi va dabdabali qulaylik. Bitta toʻliq bak va quvvat bilan 1245+ km masofa.
@@ -165,7 +173,7 @@ export default function BydChazorLanding() {
                 alt="BYD Chazor"
                 className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-transparent opacity-80" />
             </div>
 
             {/* Ranglar palitrasi */}
@@ -182,11 +190,10 @@ export default function BydChazorLanding() {
                     key={c.id}
                     onClick={() => setActiveColor(c.id)}
                     aria-label={c.name}
-                    className={`w-9 h-9 rounded-full ${c.bgClass} border-2 transition-all duration-200 ${
-                      activeColor === c.id
-                        ? 'border-cyan-400 scale-110 shadow-lg shadow-cyan-500/40'
-                        : 'border-slate-700 opacity-70 hover:opacity-100'
-                    }`}
+                    className={`w-9 h-9 rounded-full ${c.bgClass} border-2 transition-all duration-200 ${activeColor === c.id
+                      ? 'border-cyan-400 scale-110 shadow-lg shadow-cyan-500/40'
+                      : 'border-slate-700 opacity-70 hover:opacity-100'
+                      }`}
                   />
                 ))}
               </div>
@@ -280,21 +287,19 @@ export default function BydChazorLanding() {
             <div className="flex bg-slate-950 p-1.5 rounded-xl border border-slate-800 mb-8">
               <button
                 onClick={() => setActiveTab('comfort')}
-                className={`flex-1 py-3 text-sm font-semibold rounded-lg transition ${
-                  activeTab === 'comfort'
-                    ? 'bg-cyan-500 text-slate-950 shadow-md'
-                    : 'text-slate-400 hover:text-white'
-                }`}
+                className={`flex-1 py-3 text-sm font-semibold rounded-lg transition ${activeTab === 'comfort'
+                  ? 'bg-cyan-500 text-slate-950 shadow-md'
+                  : 'text-slate-400 hover:text-white'
+                  }`}
               >
                 Chazor 55KM Comfort (245 mln)
               </button>
               <button
                 onClick={() => setActiveTab('flagship')}
-                className={`flex-1 py-3 text-sm font-semibold rounded-lg transition ${
-                  activeTab === 'flagship'
-                    ? 'bg-cyan-500 text-slate-950 shadow-md'
-                    : 'text-slate-400 hover:text-white'
-                }`}
+                className={`flex-1 py-3 text-sm font-semibold rounded-lg transition ${activeTab === 'flagship'
+                  ? 'bg-cyan-500 text-slate-950 shadow-md'
+                  : 'text-slate-400 hover:text-white'
+                  }`}
               >
                 Chazor 120KM Flagship (275 mln)
               </button>
